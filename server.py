@@ -19,7 +19,7 @@ def handle_health():
     request_size = request.content_length
 
     # Вы можете использовать размер запроса для выполнения нужных операций
-    print(f"Размер запроса: {request_size} байт")
+    #print(f"Размер запроса: {request_size} байт")
 
     if request.method == 'POST':
         data = json.loads(request.data)
@@ -27,7 +27,7 @@ def handle_health():
         y = data['y']
         z = data['z']
         last_updated_time = datetime.now()
-        print(f"Received marker: {x}, {y}, {z}")
+        #print(f"Received marker: {x}, {y}, {z}")
         return jsonify({'success': True})
 
     elif request.method == 'GET':
@@ -38,7 +38,7 @@ def handle_health():
                 y = 0
                 z = 0
                 print("Coordinates set to zero as they haven't changed in 20 seconds.")
-        print(f"Sent marker: {x}, {y}, {z}")
+        #print(f"Sent marker: {x}, {y}, {z}")
         return jsonify({'x': x, 'y': y, 'z': z})
 
     else:
